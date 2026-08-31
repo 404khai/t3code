@@ -109,14 +109,16 @@ function BreadcrumbMenuContent(props: {
         props.onDirectoryChange(parentPath);
       }}
     >
-      <MenuGroupLabel className="flex min-w-0 items-center gap-1 px-2 py-1.5">
-        <span className="truncate text-foreground">
-          {pathLabel(props.directoryPath, props.projectName)}
-        </span>
-        <span className="min-w-0 flex-1 truncate text-right font-normal opacity-70">
-          {props.directoryPath || props.projectName}
-        </span>
-      </MenuGroupLabel>
+      <MenuGroup>
+        <MenuGroupLabel className="flex min-w-0 items-center gap-1 px-2 py-1.5">
+          <span className="truncate text-foreground">
+            {pathLabel(props.directoryPath, props.projectName)}
+          </span>
+          <span className="min-w-0 flex-1 truncate text-right font-normal opacity-70">
+            {props.directoryPath || props.projectName}
+          </span>
+        </MenuGroupLabel>
+      </MenuGroup>
       {canGoBack && parentPath !== null ? (
         <>
           <MenuItem closeOnClick={false} onClick={() => props.onDirectoryChange(parentPath)}>
